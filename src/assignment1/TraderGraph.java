@@ -35,8 +35,8 @@ public class TraderGraph {
         adj.get(dest).add(src);
     }
 
-    // BFS path exists
-    public boolean pathExists(Trader src, Trader dest) {
+    // find BFS path (true)
+    public boolean findPath(Trader src, Trader dest) {
         if (src == dest) return true;
 
         HashMap<Trader, Boolean> visited = new HashMap<Trader, Boolean>();

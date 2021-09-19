@@ -21,48 +21,34 @@ public class TradeFinder {
      */
     public static boolean canTrade(Set<Trader> traders, Trader t, ItemType g) {
         // make a graph from the given set of traders
-        // O(n^2)
-        TraderGraph traderGraph = getTraderGraph(traders);
-
-        // find if any possible trader is reachable for the item
-        // O(n)
-        boolean traderReachable = false;
-
-        for (Trader trader : traderGraph.adj.keySet()) {
-            // find if the trader produces item 'g'
-            if (trader.getProducedItem().equals(g)) {
-                // find if a path exists to possible trader
-                if (traderGraph.pathExists(t, trader)) {
-                    traderReachable = true;
-                }
-            }
-        }
-
-        return traderReachable;
-    }
-
-    /**
-     * Make a graph from the given set of traders
-     * complexity: O(n^2)
-     *
-     * @param traders
-     * @return
-     */
-    public static TraderGraph getTraderGraph(Set<Trader> traders) {
         TraderGraph traderGraph = new TraderGraph();
+        for (Trader x : traders) {
+            for (Trader y : traders) {
 
-        for (Trader trader : traders) {
-            for (Trader trader1 : traders) {
+                // if same trader skip
+                if(x.equals(y)) continue;
+
+                // if both the traders are tradable
                 if (
-                        trader.willingToTrade(trader1.getProducedItem())
-                                && trader1.willingToTrade(trader.getProducedItem())
-                                && !trader.equals(trader1)
+                        x.willingToTrade(y.getProducedItem())
+                                && y.willingToTrade(x.getProducedItem())
                 ) {
                     // add edge if not already present
-                    traderGraph.newEdge(trader, trader1);
+                    traderGraph.newEdge(x, y);
                 }
             }
         }
-        return traderGraph;
+
+        // find if traders are connected through BFS
+        for (Trader trader : traderGraph.adj.keySet()) {
+            if (trader.getProducedItem().equals(g)) {
+                // find if a path exists to possible trader
+                if (traderGraph.findPath(t, trader)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

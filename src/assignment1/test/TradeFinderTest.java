@@ -109,18 +109,6 @@ public class TradeFinderTest {
     }
 
     @Test
-    public void shouldGetTraderGraph() {
-        TraderGraph traderGraph = TradeFinder.getTraderGraph(new HashSet<>(traders));
-
-        // print the graph
-        for (Trader trader : traderGraph.adj.keySet()) {
-            System.out.println(
-                    trader.getName() + " -> " + traderGraph.adj.get(trader)
-            );
-        }
-    }
-
-    @Test
     public void allPossibleTests() {
         List<Pair<Integer, Integer>> tradablePairs = new ArrayList<Pair<Integer, Integer>>() {{
             add(new Pair<Integer, Integer>(1, 5));

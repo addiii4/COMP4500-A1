@@ -61,14 +61,14 @@ public class GraphTest {
 
     @Test
     public void pathExists() {
-        assertTrue(g.pathExists(traders.get(1), traders.get(2)));
-        assertTrue(g.pathExists(traders.get(1), traders.get(3)));
-        assertTrue(g.pathExists(traders.get(2), traders.get(5)));
-        assertTrue(g.pathExists(traders.get(4), traders.get(6)));
-        assertTrue(g.pathExists(traders.get(1), traders.get(5)));
-        assertTrue(g.pathExists(traders.get(3), traders.get(5)));
-        assertTrue(g.pathExists(traders.get(3), traders.get(2)));
-        assertFalse(g.pathExists(traders.get(1), traders.get(4)));
-        assertFalse(g.pathExists(traders.get(2), traders.get(6)));
+        assertTrue(g.findPath(traders.get(1), traders.get(2)));
+        assertTrue(g.findPath(traders.get(1), traders.get(3)));
+        assertTrue(g.findPath(traders.get(2), traders.get(5)));
+        assertTrue(g.findPath(traders.get(4), traders.get(6)));
+        assertTrue(g.findPath(traders.get(1), traders.get(5)));
+        assertTrue(g.findPath(traders.get(3), traders.get(5)));
+        assertTrue(g.findPath(traders.get(3), traders.get(2)));
+        assertFalse(g.findPath(traders.get(1), traders.get(4)));
+        assertFalse(g.findPath(traders.get(2), traders.get(6)));
     }
 }

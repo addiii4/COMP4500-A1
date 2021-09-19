@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4430d899-3ffc-4ee2-9819-0a8fae775d4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1-handout-2021.iml" beforeDir="false" afterPath="$PROJECT_DIR$/COMP4500-A1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment1/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment1/TraderGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP4500-A1/assignment1/TradeFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP4500-A1/assignment1/TradeFinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP4500-A1/assignment1/TraderGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP4500-A1/assignment1/TraderGraph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP4500-A1/assignment1/test/GraphTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP4500-A1/assignment1/test/GraphTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP4500-A1/assignment1/test/TradeFinderTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP4500-A1/assignment1/test/TradeFinderTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP4500-A1/assignment1/test/TradeFinderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP4500-A1/assignment1/test/TradeFinderTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment1/TradeFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment1/TradeFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment1/TraderGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment1/TraderGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment1/test/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment1/test/GraphTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment1/test/TradeFinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment1/test/TradeFinderTest.java" afterDir="false" />
     </list>
