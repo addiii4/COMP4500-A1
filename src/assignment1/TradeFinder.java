@@ -22,13 +22,13 @@ public class TradeFinder {
     public static boolean canTrade(Set<Trader> traders, Trader t, ItemType g) {
         // make a graph from the given set of traders
         // O(n^2)
-        Graph<Trader> traderGraph = getTraderGraph(traders);
+        TraderGraph traderGraph = getTraderGraph(traders);
 
         // find if any possible trader is reachable for the item
         // O(n)
         boolean traderReachable = false;
 
-        for (Trader trader : traderGraph.map.keySet()) {
+        for (Trader trader : traderGraph.adj.keySet()) {
             // find if the trader produces item 'g'
             if (trader.getProducedItem().equals(g)) {
                 // find if a path exists to possible trader
@@ -48,8 +48,8 @@ public class TradeFinder {
      * @param traders
      * @return
      */
-    public static Graph<Trader> getTraderGraph(Set<Trader> traders) {
-        Graph<Trader> traderGraph = new Graph<Trader>();
+    public static TraderGraph getTraderGraph(Set<Trader> traders) {
+        TraderGraph traderGraph = new TraderGraph();
 
         for (Trader trader : traders) {
             for (Trader trader1 : traders) {
@@ -59,13 +59,7 @@ public class TradeFinder {
                                 && !trader.equals(trader1)
                 ) {
                     // add edge if not already present
-                    try {
-                        if (!traderGraph.hasEdge(trader, trader1, true)) {
-                            traderGraph.addEdge(trader, trader1, true);
-                        }
-                    } catch (NullPointerException e) {
-                        traderGraph.addEdge(trader, trader1, true);
-                    }
+                    traderGraph.newEdge(trader, trader1);
                 }
             }
         }

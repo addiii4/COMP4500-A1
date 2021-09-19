@@ -110,12 +110,12 @@ public class TradeFinderTest {
 
     @Test
     public void shouldGetTraderGraph() {
-        Graph<Trader> traderGraph = TradeFinder.getTraderGraph(new HashSet<>(traders));
+        TraderGraph traderGraph = TradeFinder.getTraderGraph(new HashSet<>(traders));
 
         // print the graph
-        for (Trader trader : traderGraph.map.keySet()) {
+        for (Trader trader : traderGraph.adj.keySet()) {
             System.out.println(
-                    trader.getName() + " -> " + traderGraph.map.get(trader)
+                    trader.getName() + " -> " + traderGraph.adj.get(trader)
             );
         }
     }

@@ -1,63 +1,74 @@
 package assignment1.test;
 
-import assignment1.Graph;
+import assignment1.ItemType;
+import assignment1.Trader;
+import assignment1.TraderGraph;
 import org.junit.*;
-import org.junit.runners.Parameterized;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class GraphTest {
 
-    static Graph<Integer> graph;
+    static TraderGraph g;
+    static List<Trader> traders;
 
     @BeforeClass
     public static void setUp() throws Exception {
-        graph = new Graph<>();
+        g = new TraderGraph();
+
+        // initialize 5 traders
+        traders = new ArrayList<>();
+        for(int i=1; i<8; i++) {
+            HashSet<ItemType> tradableItems = new HashSet<ItemType>();
+            tradableItems.add(new ItemType(1));
+            traders.add(
+                    new Trader("t"+Integer.valueOf(i), new ItemType(1), tradableItems)
+            );
+        }
 
         // add 5 vertices
-        for(int i=1; i<5; i++) {
-            graph.addVertex(i);
+        for(int i=1; i<7; i++) {
+            g.newVertex(traders.get(i));
         }
 
         // add connections
-        graph.addEdge(1, 2, true);
-        graph.addEdge(2, 3, true);
-        graph.addEdge(4, 5, true);
-    }
-
-    @AfterClass
-    public static void tearDown() throws Exception {
-
+        g.newEdge(traders.get(1), traders.get(2));
+        g.newEdge(traders.get(1), traders.get(3));
+        g.newEdge(traders.get(2), traders.get(5));
+        g.newEdge(traders.get(4), traders.get(6));
     }
 
     @Test
     public void addEdge() {
-        graph.addEdge(1, 2, true);
-        graph.addEdge(1, 2, true);
-        graph.addEdge(1, 2, true);
+        // add connections
         System.out.println(
-                graph.toString()
+                g
         );
+
+        System.out.println(
+                traders
+        );
+
+        g.newEdge(traders.get(1), traders.get(2));
+        g.newEdge(traders.get(1), traders.get(3));
+        g.newEdge(traders.get(2), traders.get(5));
+        g.newEdge(traders.get(4), traders.get(6));
     }
 
     @Test
     public void pathExists() {
-        System.out.println(
-                graph.pathExists(1, 2)
-                // should return TRUE
-        );
-        assertTrue(graph.pathExists(1, 2));
-
-        System.out.println(
-                graph.pathExists(1, 3)
-                // should return TRUE
-        );
-        assertTrue(graph.pathExists(1, 3));
-
-        System.out.println(
-                graph.pathExists(1, 4)
-                // should return false
-        );
-        assertFalse(graph.pathExists(1, 4));
+        assertTrue(g.pathExists(traders.get(1), traders.get(2)));
+        assertTrue(g.pathExists(traders.get(1), traders.get(3)));
+        assertTrue(g.pathExists(traders.get(2), traders.get(5)));
+        assertTrue(g.pathExists(traders.get(4), traders.get(6)));
+        assertTrue(g.pathExists(traders.get(1), traders.get(5)));
+        assertTrue(g.pathExists(traders.get(3), traders.get(5)));
+        assertTrue(g.pathExists(traders.get(3), traders.get(2)));
+        assertFalse(g.pathExists(traders.get(1), traders.get(4)));
+        assertFalse(g.pathExists(traders.get(2), traders.get(6)));
     }
 }
